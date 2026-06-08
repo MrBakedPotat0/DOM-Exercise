@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment DOM</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 100%;
+        }
+
+        h1 {
+            font-size: 1.75em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        }        
+
+        #banner {
+            background-color: #999;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        header {
+            margin-top: 50px;
+        }
+
+        main, body>section {
+            width: 800px;
+            margin: 50px auto;
+        }
+
+        main h2 {
+            cursor: pointer;
+        }
+
+        body>section{
+            margin-top: 50px;
+        }
+
+
+      /*  ****** font awesome icons for plus/minus ******* */
+
+       /* sets the 'plus' icon when the page loads */
+       main h2::before {
+            font-family: FontAwesome;
+            content:"\f067";
+            color: #999;
+            padding-right: 8px;
+        }
+
+      /* the class you are adding to the <h2>s = 'minus' */
+        .minus::before {
+            font-family: FontAwesome;
+            content:"\f068";
+            color: #999;
+            padding-right: 8px;
+        }        
+
+       /* sets the display for the <div>s when the page loads */
+        main div {
+            display: none;
+            margin-bottom: 50px;
+            background-color: #FAF9F6
+        }
+
+        main div p {
+            padding: 10px;
+        }
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <div id="banner" class="center">
+        <img src="images/img_question_answer.jpg" alt ="photo of question mark and answer mark">
+    </div>
+
+    <header class="center">
+        <h1>Questions and Answers</h1>
+    </header>
+
+    <main>
+        <section id="qa">
+            <h2>What is JavaScript?</h2>
+            <div>
+                <p>JavaScript is a scripting language that runs in the web page.</p>
+
+                <p>It is one of the core technologies of the World Wide Web, alongside HTML and CSS.</p>
+                
+                <p>JavaScript is used by programmers across the world to create dynamic and interactive web content.</p>
+            </div>
+
+            <h2>What is the DOM?</h2>
+            <div>
+                <p>The DOM is the structure of the elements on the web page.</p>
+               
+                <p>It represents the page so that programs can change the document structure, style, and content.</p>
+                
+                <p>The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.</p>
+            </div>
+
+            <h2>What is the World Wide Web Consortium (W3C)?</h2>
+            <div>
+                <p>W3C is the organization that sets web standards.</p>
+                
+                <p>Founded in 1994 and currently led by Tim Berners-Lee.</p>
+                
+                <p>It is made up of member organizations that maintain full-time staff working together in the development of standards for the World Wide Web.</p>
+            </div>
+        </section>
+    </main>        
+
+    <section>
+        <h2>Useful Resources</h2>
+        <p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="new">MDN JavaScript Reference</a>
+        </p>
+
+        <p>
+            <a href="https://www.w3schools.com/js/js_htmldom.asp" target="new">Document Object Model</a>
+        </p>
+
+        <p>
+            <a href="https://www.w3.org/" target="new">World Wide Web Consortium</a>
+        </p>
+    </section>
+
+    <script>
+        $(document).ready(function() { //ensures function is ready when the document is
+            $("main h2").click(function() { //will attatch click event to the h2 elements
+                $(this).toggleClass("minus"); //toggles the class to switch between plus and minus
+                $(this).next("div").fadeToggle(); //accesses the <div> following the clicked h2 and toggles visibility with fade animation
+            })
+        })
+    </script>
+
+</body>
+</html>
